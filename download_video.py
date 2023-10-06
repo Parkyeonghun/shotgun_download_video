@@ -32,10 +32,13 @@ class DownloadVideo:
             
             if self.result_file['sg_uploaded_movie'] == None:
                 print('"sg_uploaded_movie" is None')
-
             else:
                 self.file_path=self.local_file_path+"/%s" % self.result_file['sg_uploaded_movie']['name']
 
+            if self.result_file['sg_path_to_movie'] == None:
+                print('"sg_path_to_movie" is None')
+                self.download_attachment()
+            else:
                 if os.path.isfile(self.path_to_movie):
                     self.download_file_from_path()
                 else:
